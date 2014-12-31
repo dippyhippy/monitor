@@ -2,7 +2,7 @@
     "properties": {
         "name": "main",
         "environment": {
-            "type": "noflo-nodejs"
+            "type": "all"
         }
     },
     "inports": {},
