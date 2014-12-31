@@ -8,6 +8,115 @@
     "inports": {},
     "outports": {},
     "groups": [],
-    "processes": {},
-    "connections": []
+    "processes": {
+        "mandrill/Send_3rioa": {
+            "component": "mandrill/Send",
+            "metadata": {
+                "label": "mandrill/Send",
+                "x": -72,
+                "y": 0,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "core/Output_j21d9": {
+            "component": "core/Output",
+            "metadata": {
+                "label": "core/Output",
+                "x": 180,
+                "y": 36,
+                "width": 72,
+                "height": 72
+            }
+        },
+        "monitor/ImapConnection_y8tk": {
+            "component": "monitor/ImapConnection",
+            "metadata": {
+                "label": "monitor/ImapConnection",
+                "x": -180,
+                "y": 108,
+                "width": 72,
+                "height": 72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "mandrill/Send_3rioa",
+                "port": "status"
+            },
+            "tgt": {
+                "process": "core/Output_j21d9",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "src": {
+                "process": "mandrill/Send_3rioa",
+                "port": "error"
+            },
+            "tgt": {
+                "process": "core/Output_j21d9",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "data": "6KhWcJmcdE0rEuMT5wI4jA",
+            "tgt": {
+                "process": "mandrill/Send_3rioa",
+                "port": "key"
+            }
+        },
+        {
+            "data": 3,
+            "tgt": {
+                "process": "mandrill/Send_3rioa",
+                "port": "retries"
+            }
+        },
+        {
+            "data": {
+                "html": "<p>This is a mail routing test</p>",
+                "text": "This is a mail routing test",
+                "subject": "Mail Routing Test",
+                "from_email": "monitor@godalming.it",
+                "from_name": "Godalming IT Services - Email Monitoring",
+                "to": [
+                    {
+                        "email": "ben@finitedesign.co.uk",
+                        "name": "Ben Major",
+                        "type": "to"
+                    },
+                    {
+                        "email": "ben@godalming.it",
+                        "name": "Ben Major",
+                        "type": "to"
+                    }
+                ],
+                "headers": {
+                    "Reply-To": "monitor@godalming.it"
+                }
+            },
+            "tgt": {
+                "process": "mandrill/Send_3rioa",
+                "port": "message"
+            }
+        },
+        {
+            "data": {
+                "user": "ben@dippyhippy.com",
+                "password": "hairypie",
+                "host": "imap.gmail.com",
+                "port": 993,
+                "tls": true
+            },
+            "tgt": {
+                "process": "monitor/ImapConnection_y8tk",
+                "port": "options"
+            }
+        }
+    ]
 }
