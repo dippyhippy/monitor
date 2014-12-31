@@ -3,31 +3,37 @@ module.exports = ->
   @initConfig
     pkg: @file.readJSON 'package.json'
 
-    # Updating the package manifest files
+  # Updating the package manifest files
     noflo_manifest:
       update:
         files:
           'component.json': ['graphs/*', 'components/*']
           'package.json': ['graphs/*', 'components/*']
 
-    # CoffeeScript compilation of tests
+  # CoffeeScript compilation of tests
     coffee:
+      libraries:
+        expand: true
+        cwd: 'src/lib'
+        src: ['**.coffee']
+        dest: 'lib'
+        ext: '.js'
       spec:
         options:
           bare: true
-        expand: true
-        cwd: 'spec'
-        src: ['**.coffee']
-        dest: 'spec'
-        ext: '.js'
+          expand: true
+          cwd: 'spec'
+          src: ['**.coffee']
+          dest: 'spec'
+          ext: '.js'
 
-    # Browser build of NoFlo
+  # Browser build of NoFlo
     noflo_browser:
       build:
         files:
           'browser/monitor.js': ['component.json']
 
-    # JavaScript minification for the browser
+  # JavaScript minification for the browser
     uglify:
       options:
         report: 'min'
@@ -35,26 +41,26 @@ module.exports = ->
         files:
           './browser/monitor.min.js': ['./browser/monitor.js']
 
-    # Automated recompilation and testing when developing
+  # Automated recompilation and testing when developing
     watch:
       files: ['spec/*.coffee', 'components/*.coffee']
       tasks: ['test']
 
-    # BDD tests on Node.js
+  # BDD tests on Node.js
     cafemocha:
       nodejs:
         src: ['spec/*.coffee']
         options:
           reporter: 'spec'
 
-    # BDD tests on browser
+  # BDD tests on browser
     mocha_phantomjs:
       options:
         output: 'spec/result.xml'
         reporter: 'spec'
       all: ['spec/runner.html']
 
-    # Coding standards
+  # Coding standards
     coffeelint:
       components: ['Gruntfile.coffee', 'spec/*.coffee', 'components/*.coffee']
       options:

@@ -1,7 +1,7 @@
 {
   "name": "monitor",
   "description": "godalming.it monitoring project",
-  "version": "0.0.1",
+  "version": "0.0.6",
   "author": {
     "name": "Ben Major",
     "email": "ben@godalming.it"
@@ -37,5 +37,13 @@
     "grunt-noflo-manifest": "~0.1.11",
     "grunt-noflo-browser": "^0.1.1"
   },
-  "keywords": []
+  "keywords": [],
+  "noflo": {
+    "graphs": {
+      "main": "graphs/main.json"
+    },
+    "components": {
+      "ImapConnection": "components/ImapConnection.coffee"
+    }
+  }
 }

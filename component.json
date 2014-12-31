@@ -3,9 +3,8 @@
   "description": "godalming.it monitoring project",
   "author": "Ben Major <ben@godalming.it>",
   "repo": "dippyhippy/monitor",
-  "version": "0.0.1",
-  "keywords": [
-  ],
+  "version": "0.0.6",
+  "keywords": [],
   "dependencies": {
     "noflo/noflo": "*"
   },
@@ -13,6 +12,20 @@
     "https://raw.githubusercontent.com"
   ],
   "scripts": [
-    "index.js"
-  ]
+    "index.js",
+    "components/ImapConnection.coffee",
+    "graphs/main.json"
+  ],
+  "json": [
+    "graphs/main.json",
+    "component.json"
+  ],
+  "noflo": {
+    "graphs": {
+      "main": "graphs/main.json"
+    },
+    "components": {
+      "ImapConnection": "components/ImapConnection.coffee"
+    }
+  }
 }
