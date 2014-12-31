@@ -40,7 +40,8 @@
   "keywords": [],
   "noflo": {
     "graphs": {
-      "main": "graphs/main.json"
+      "main": "graphs/main.json",
+      "test": "graphs/test.fbp"
     },
     "components": {
       "ImapConnection": "components/ImapConnection.coffee"

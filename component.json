@@ -14,18 +14,25 @@
   "scripts": [
     "index.js",
     "components/ImapConnection.coffee",
-    "graphs/main.json"
+    "graphs/main.json",
+    "graphs/layers/main.json",
+    "graphs/test.fbp"
   ],
   "json": [
     "graphs/main.json",
-    "component.json"
+    "component.json",
+    "graphs/layers/main.json"
   ],
   "noflo": {
     "graphs": {
-      "main": "graphs/main.json"
+      "main": "graphs/main.json",
+      "test": "graphs/test.fbp"
     },
     "components": {
       "ImapConnection": "components/ImapConnection.coffee"
     }
-  }
+  },
+  "fbp": [
+    "graphs/test.fbp"
+  ]
 }
