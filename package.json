@@ -1,26 +1,41 @@
 {
-  "name": "noflo-nodejs",
-  "version": "0.0.5",
-  "description": "Node.js runtime for NoFlo",
-  "main": "index.js",
+  "name": "monitor",
+  "description": "godalming.it monitoring project",
+  "version": "0.0.1",
+  "author": {
+    "name": "Ben Major",
+    "email": "ben@godalming.it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dippyhippy/monitor.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "undefined/blob/master/LICENSE-MIT"
+    }
+  ],
   "scripts": {
-    "lint": "jshint bin/noflo-nodejs bin/noflo-nodejs-init index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt test"
   },
-  "bin": {
-    "noflo-nodejs": "./bin/noflo-nodejs",
-    "noflo-nodejs-init": "./bin/noflo-nodejs-init"
-  },
-  "author": "Henri Bergius <henri.bergius@iki.fi>",
-  "license": "MIT",
   "dependencies": {
-    "commander": "^2.1.0",
-    "flowhub-registry": "0.0.2",
-    "noflo": "^0.5.0",
-    "noflo-runtime-websocket": "^0.2.3",
-    "uuid": "^1.4.1"
+    "imap": "^0.8.14",
+    "noflo": "~0.5.0",
+    "noflo-core": "^0.1.11"
   },
   "devDependencies": {
-    "jshint": "*"
-  }
+    "grunt": "~0.4.1",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-coffeelint": "~0.0.10",
+    "grunt-cafe-mocha": "~0.1.12",
+    "chai": "~1.9.0",
+    "mocha": "~1.21.0",
+    "grunt-mocha-phantomjs": "~0.2.2",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-noflo-manifest": "~0.1.11",
+    "grunt-noflo-browser": "^0.1.1"
+  },
+  "keywords": []
 }
